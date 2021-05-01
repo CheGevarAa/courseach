@@ -10,6 +10,10 @@ import java.util.Optional;
 
 @Service
 public class ReportsService {
+    /**
+     * Модуль сервиса сущности Отчеты(ReportsService)
+     * Здесь реализованы обращения к стандартным запросам сервера
+     */
     @Autowired
     private ReportsRepo reportsRepo;
 

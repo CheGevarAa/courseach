@@ -12,6 +12,11 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class Employees {
+    /**
+     * Класс сущности Сотрудники(Employees)
+     * В данном модуле происходит описание сущности БД и задаются ее параметры
+     * вместе со связями с другими сущностями
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

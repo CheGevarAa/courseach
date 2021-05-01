@@ -10,6 +10,10 @@ import java.util.Optional;
 
 @Service
 public class DangerLevelsService {
+    /**
+     * Модуль сервиса сущности Степени угроз(DangerLevelService)
+     * Здесь реализованы обращения к стандартным запросам сервера
+     */
     @Autowired
     private DangerLevelsRepo dangerLevelsRepo;
 

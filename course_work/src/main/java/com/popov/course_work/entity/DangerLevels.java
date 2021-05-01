@@ -12,6 +12,11 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 public class DangerLevels {
+    /**
+     * Класс сущности Степени угроз(DangerLevels)
+     * В данном модуле происходит описание сущности БД и задаются ее параметры
+     * вместе со связями с другими сущностями
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

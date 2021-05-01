@@ -12,6 +12,15 @@ import java.util.Optional;
 
 @RestController
 public class DepartmentsController {
+    /**
+     * Класс контроллера Департаментов(DepartmentsController)
+     * Данный модуль обеспечивает взаимодействе с объектами отчетов в БД и клиентским приложением,
+     * оно обеспечивается при помощи методов поиска, обновления и создания нового объекта.
+     * Сами эти методы реализованы с помощью аннотаций, указывающих на тип запроса к БД, а также
+     * ссылок на таблицы, к которой метод должен подключиться.
+     *
+     *
+     */
     private final DepartmentsService departmentsService;
 
     @Autowired
@@ -46,6 +55,14 @@ public class DepartmentsController {
             departments.setDepartment_name(departmentsUpdate.getDepartment_name());
             departmentsService.update(departments);
             return new ResponseEntity<>(departments, HttpStatus.OK);
+        }).orElseThrow(() -> new IllegalArgumentException());
+    }
+
+    @DeleteMapping("/api/departments/{id}")
+    public ResponseEntity<?> deleteDepartment(@PathVariable(name = "id") Long id) {
+        return departmentsService.find(id).map(departments -> {
+            departmentsService.delete(departments);
+            return ResponseEntity.ok().build();
         }).orElseThrow(() -> new IllegalArgumentException());
     }
 }

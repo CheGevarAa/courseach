@@ -12,12 +12,22 @@ import java.util.Optional;
 
 @RestController
 public class ReportsController {
+    /**
+     * Класс контроллера Отчетов(ReportsController)
+     * Данный модуль обеспечивает взаимодействе с объектами отчетов в БД и клиентским приложением,
+     * оно обеспечивается при помощи методов поиска, обновления и создания нового объекта.
+     * Сами эти методы реализованы с помощью аннотаций, указывающих на тип запроса к БД, а также
+     * ссылок на таблицы, к которой метод должен подключиться.
+     *
+     *
+     */
     private final ReportsService reportsService;
 
     @Autowired
     public ReportsController(ReportsService reportsService){
         this.reportsService = reportsService;
     }
+
     @PostMapping("/api/reports")
     public ResponseEntity<?>create(@RequestBody Reports reports){
         reportsService.create(reports);
@@ -45,11 +55,19 @@ public class ReportsController {
         return reportsService.find(id).map(reports -> {
             reports.setCreation_date(reportsUpdate.getCreation_date());
             reports.setEmployee(reportsUpdate.getEmployee());
-            reports.setDepartment_id(reportsUpdate.getDepartment_id());
+            //reports.setDepartment_id(reportsUpdate.getDepartment_id());
             reports.setDangerLevel(reportsUpdate.getDangerLevel());
             reports.setErrors(reportsUpdate.getErrors());
             reportsService.update(reports);
             return new ResponseEntity<>(reports, HttpStatus.OK);
+        }).orElseThrow(() -> new IllegalArgumentException());
+    }
+
+    @DeleteMapping("/api/reports/{id}")
+    public ResponseEntity<?> deleteReport(@PathVariable(name = "id") Long id) {
+        return reportsService.find(id).map(report -> {
+            reportsService.delete(report);
+            return ResponseEntity.ok().build();
         }).orElseThrow(() -> new IllegalArgumentException());
     }
 }

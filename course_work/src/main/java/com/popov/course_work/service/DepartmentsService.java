@@ -10,6 +10,10 @@ import java.util.Optional;
 
 @Service
 public class DepartmentsService {
+    /**
+     * Модуль сервиса сущности Департаменты(DepartmentsService)
+     * Здесь реализованы обращения к стандартным запросам сервера
+     */
     @Autowired
     private DepartmentsRepo departmentsRepo;
 

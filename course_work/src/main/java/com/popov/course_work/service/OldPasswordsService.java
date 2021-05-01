@@ -10,6 +10,10 @@ import java.util.Optional;
 
 @Service
 public class OldPasswordsService {
+    /**
+     * Модуль сервиса сущности Старые пароли(OldPasswordsService)
+     * Здесь реализованы обращения к стандартным запросам сервера
+     */
     @Autowired
     private OldPasswordsRepo oldPasswordsRepo;
 

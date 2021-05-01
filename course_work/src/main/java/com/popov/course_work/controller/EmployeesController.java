@@ -12,6 +12,15 @@ import java.util.Optional;
 
 @RestController
 public class EmployeesController {
+    /**
+     * Класс контроллера Сотрудников(EmployeesController)
+     * Данный модуль обеспечивает взаимодействе с объектами отчетов в БД и клиентским приложением,
+     * оно обеспечивается при помощи методов поиска, обновления и создания нового объекта.
+     * Сами эти методы реализованы с помощью аннотаций, указывающих на тип запроса к БД, а также
+     * ссылок на таблицы, к которой метод должен подключиться.
+     *
+     *
+     */
     private final EmployeesService employeesService;
 
     @Autowired
@@ -58,6 +67,14 @@ public class EmployeesController {
             employees.setReportsList(employeesUpdate.getReportsList());
             employeesService.update(employees);
             return new ResponseEntity<>(employees, HttpStatus.OK);
+        }).orElseThrow(() -> new IllegalArgumentException());
+    }
+
+    @DeleteMapping("/api/employees/{id}")
+    public ResponseEntity<?> deleteEmployee(@PathVariable(name = "id") Long id) {
+        return employeesService.find(id).map(employees -> {
+            employeesService.delete(employees);
+            return ResponseEntity.ok().build();
         }).orElseThrow(() -> new IllegalArgumentException());
     }
 }

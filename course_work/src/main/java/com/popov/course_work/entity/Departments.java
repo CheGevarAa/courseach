@@ -12,6 +12,11 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 public class Departments {
+    /**
+     * Класс сущности Департаменты(Departments)
+     * В данном модуле происходит описание сущности БД и задаются ее параметры
+     * вместе со связями с другими сущностями
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

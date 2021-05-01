@@ -10,6 +10,11 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 public class OldPasswords {
+    /**
+     * Класс сущности Старого Пароля(OldPasswords)
+     * В данном модуле происходит описание сущности БД и задаются ее параметры
+     * вместе со связями с другими сущностями
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

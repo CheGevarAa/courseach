@@ -10,6 +10,10 @@ import java.util.Optional;
 
 @Service
 public class EmployeesService {
+    /**
+     * Модуль сервиса сущности Сотрудники(EmployeesService)
+     * Здесь реализованы обращения к стандартным запросам сервера
+     */
 
     @Autowired
     private EmployeesRepo employeesRepo;

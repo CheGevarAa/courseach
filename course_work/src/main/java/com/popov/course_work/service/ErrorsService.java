@@ -10,7 +10,10 @@ import java.util.Optional;
 
 @Service
 public class ErrorsService {
-    
+    /**
+     * Модуль сервиса сущности Ошибки(ErrorsService)
+     * Здесь реализованы обращения к стандартным запросам сервера
+     */
     @Autowired
     private ErrorsRepo errorsRepo;
 

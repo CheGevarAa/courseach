@@ -12,6 +12,15 @@ import java.util.Optional;
 
 @RestController
 public class DangerLevelsController {
+    /**
+     * Класс контроллера Степеней угроз(DangerLevelsController)
+     * Данный модуль обеспечивает взаимодействе с объектами отчетов в БД и клиентским приложением,
+     * оно обеспечивается при помощи методов поиска, обновления и создания нового объекта.
+     * Сами эти методы реализованы с помощью аннотаций, указывающих на тип запроса к БД, а также
+     * ссылок на таблицы, к которой метод должен подключиться.
+     *
+     *
+     */
 
     private final DangerLevelsService dangerLevelsService;
 
@@ -47,6 +56,14 @@ public class DangerLevelsController {
             dangerLevels.setDescription(dangerLevelsUpdate.getDescription());
             dangerLevelsService.update(dangerLevels);
             return new ResponseEntity<>(dangerLevels, HttpStatus.OK);
+        }).orElseThrow(() -> new IllegalArgumentException());
+    }
+
+    @DeleteMapping("/api/dangerLevels/{id}")
+    public ResponseEntity<?> deleteDangerLevel(@PathVariable(name = "id") Long id) {
+        return dangerLevelsService.find(id).map(dangerLevels -> {
+            dangerLevelsService.delete(dangerLevels);
+            return ResponseEntity.ok().build();
         }).orElseThrow(() -> new IllegalArgumentException());
     }
 }

@@ -12,6 +12,15 @@ import java.util.Optional;
 
 @RestController
 public class ErrorsController {
+    /**
+     * Класс контроллера Ошибок(ErrorsController)
+     * Данный модуль обеспечивает взаимодействе с объектами отчетов в БД и клиентским приложением,
+     * оно обеспечивается при помощи методов поиска, обновления и создания нового объекта.
+     * Сами эти методы реализованы с помощью аннотаций, указывающих на тип запроса к БД, а также
+     * ссылок на таблицы, к которой метод должен подключиться.
+     *
+     *
+     */
     private final ErrorsService errorsService;
 
     @Autowired
@@ -47,6 +56,14 @@ public class ErrorsController {
             errors.setError_code(errorsUpdate.getError_code());
             errorsService.update(errors);
             return new ResponseEntity<>(errors, HttpStatus.OK);
+        }).orElseThrow(() -> new IllegalArgumentException());
+    }
+
+    @DeleteMapping("/api/errors/{id}")
+    public ResponseEntity<?> deleteError(@PathVariable(name = "id") Long id) {
+        return errorsService.find(id).map(errors -> {
+            errorsService.delete(errors);
+            return ResponseEntity.ok().build();
         }).orElseThrow(() -> new IllegalArgumentException());
     }
 }
