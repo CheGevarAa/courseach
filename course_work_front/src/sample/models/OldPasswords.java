@@ -6,6 +6,11 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class OldPasswords {
+    /**
+     * Модуль описывающий модель данных класса Старые пароли(OldPasswords)
+     * Данный модуль предназначен для реализации методов получения и хранения информации об объекте
+     * Здесь прописаны методы полуения необходимых атрибутов данного объекта и его конструктор
+     */
     private final LongProperty id;
     private final StringProperty oldPassword;
 

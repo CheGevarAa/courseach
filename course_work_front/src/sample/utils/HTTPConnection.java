@@ -7,6 +7,11 @@ import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 
 public class HTTPConnection {
+    /**
+     * Модуль установки HTTP соединения
+     * В данном модуле происходит передача адреса, на который будет отправлен запрос
+     * А также описываются стандартные методы архитектуры REST
+     */
     public static String GetRequest(String urlString) {
         try {
             URL url = new URL(urlString);

@@ -5,9 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import sample.controllers.LoginPageController;
+import sample.controllers.MainController;
 import sample.models.Employee;
 
 import java.io.IOException;
@@ -16,9 +18,14 @@ public class Main extends Application {
 
     private Stage stage;
     public Employee emp;
+    private BorderPane mainLayout;
 
     public void setEmp(Employee emp) {
         this.emp = emp;
+    }
+
+    public void getEmp(Employee emp){
+
     }
 
     @Override
@@ -40,11 +47,16 @@ public class Main extends Application {
     public void showMain(Stage stage) throws IOException {
         FXMLLoader mainload = new FXMLLoader();
         mainload.setLocation(Main.class.getResource("views/main.fxml"));
-        AnchorPane main = (AnchorPane) mainload.load();
-        Scene mainscene = new Scene(main, 100, 100);
+        mainLayout = (BorderPane) mainload.load();
+        Scene mainscene = new Scene(mainLayout, 600, 400);
         stage.setScene(mainscene);
+        MainController mainController = mainload.getController();
+        mainController.initialize(this, stage, emp);
         stage.show();
     }
+
+
+
     public static void main(String[] args) {
         launch(args);
     }

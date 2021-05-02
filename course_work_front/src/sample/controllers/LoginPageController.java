@@ -13,6 +13,10 @@ import java.io.IOException;
 
 
 public class LoginPageController {
+    /**
+     * Модуль контроллера страницы приложения, содержащей форму логина в приложение
+     * В данном модуле прописано программная проверка объектов формы на предмет правильности запонения данных
+     */
 
     @FXML
     private TextField userField;
