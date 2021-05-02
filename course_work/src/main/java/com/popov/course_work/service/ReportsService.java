@@ -26,4 +26,6 @@ public class ReportsService {
     public List<Reports> findAll(){return reportsRepo.findAll();}
 
     public Optional<Reports> find(Long id){return reportsRepo.findById(id);}
+
+    public List<Reports> findByUser(Long id){return reportsRepo.findByEmployee_Id(id);}
 }

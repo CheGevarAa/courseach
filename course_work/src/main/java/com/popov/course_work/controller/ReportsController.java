@@ -50,6 +50,14 @@ public class ReportsController {
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("/api/reports/by_user/{id}")
+    public ResponseEntity<List<Reports>> findByUser(@PathVariable(name = "id")Long id){
+        final List<Reports> reportsList = reportsService.findByUser(id);
+        return reportsList != null && !reportsList.isEmpty()
+                ? new ResponseEntity<>(reportsList, HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
     @PutMapping("/api/reports/{id}")
     public ResponseEntity<?> updateReports(@PathVariable(name = "id")Long id, @RequestBody Reports reportsUpdate){
         return reportsService.find(id).map(reports -> {
