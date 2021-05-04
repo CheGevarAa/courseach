@@ -3,10 +3,7 @@ package sample.utils;
 import com.google.gson.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import sample.models.*;
-
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class ReportRequests {
@@ -29,8 +26,6 @@ public class ReportRequests {
                 : OldPasswordsRequests.parsepass(oldpass.getAsJsonObject());
         return new Employee(empid, empname, password, departments, passold);
     }
-
-
 
     public static ObservableList<Report> getAll(){
         ObservableList<Report> reports = FXCollections.observableArrayList();

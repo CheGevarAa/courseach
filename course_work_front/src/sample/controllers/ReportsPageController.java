@@ -50,7 +50,6 @@ public class ReportsPageController {
     MainController controller = new MainController();
 
     public void initialize(Stage stage, ObservableList<Report> reports, Employee employee){
-        //this.mainApp=mainApp;
         this.stage=stage;
         this.reports=reports;
         this.employee=employee;

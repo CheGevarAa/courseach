@@ -22,7 +22,6 @@ public class MainController {
      * переключения между страницами приложения
      */
 
-
     private Main main;
     private Stage stage;
     private Employee emp;
@@ -67,9 +66,7 @@ public class MainController {
     public void initialize(Main main, Stage stage, Employee emp){
         this.main = main;
         this.stage = stage;
-       // System.out.println(emp.getUsername() + " main controller init");
         this.emp = emp;
-
     }
 
     @FXML
