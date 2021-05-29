@@ -17,9 +17,9 @@ public class ErrorsService {
     @Autowired
     private ErrorsRepo errorsRepo;
 
-    public void create(Errors errors){errorsRepo.save(errors);}
+    public Errors create(Errors errors){return errorsRepo.save(errors);}
 
-    public void update(Errors errors){errorsRepo.save(errors);}
+    public Errors update(Errors errors){return errorsRepo.save(errors);}
 
     public void delete(Errors errors){errorsRepo.delete(errors);}
 

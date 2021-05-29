@@ -17,9 +17,9 @@ public class DepartmentsService {
     @Autowired
     private DepartmentsRepo departmentsRepo;
 
-    public void create(Departments departments){departmentsRepo.save(departments);}
+    public Departments create(Departments departments){ return departmentsRepo.save(departments);}
 
-    public void update(Departments departments){departmentsRepo.save(departments);}
+    public Departments update(Departments departments){return departmentsRepo.save(departments);}
 
     public void delete(Departments departments){departmentsRepo.delete(departments);}
 

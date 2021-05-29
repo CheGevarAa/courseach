@@ -17,9 +17,9 @@ public class ReportsService {
     @Autowired
     private ReportsRepo reportsRepo;
 
-    public void create(Reports reports){reportsRepo.save(reports);}
+    public Reports create(Reports reports){return reportsRepo.save(reports);}
 
-    public void update(Reports reports){reportsRepo.save(reports);}
+    public Reports update(Reports reports){return reportsRepo.save(reports);}
 
     public void delete(Reports reports){reportsRepo.delete(reports);}
 

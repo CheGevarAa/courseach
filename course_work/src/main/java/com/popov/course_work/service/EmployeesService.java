@@ -18,9 +18,9 @@ public class EmployeesService {
     @Autowired
     private EmployeesRepo employeesRepo;
 
-    public void create(Employees employees){employeesRepo.save(employees);}
+    public Employees create(Employees employees){return employeesRepo.save(employees);}
 
-    public void update(Employees employees){employeesRepo.save(employees);}
+    public Employees update(Employees employees){return employeesRepo.save(employees);}
 
     public void delete(Employees employees){employeesRepo.delete(employees);}
 

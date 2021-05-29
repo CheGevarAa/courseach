@@ -17,9 +17,9 @@ public class DangerLevelsService {
     @Autowired
     private DangerLevelsRepo dangerLevelsRepo;
 
-    public void create(DangerLevels dangerLevels){dangerLevelsRepo.save(dangerLevels);}
+    public DangerLevels create(DangerLevels dangerLevels){return dangerLevelsRepo.save(dangerLevels);}
 
-    public void update(DangerLevels dangerLevels){dangerLevelsRepo.save(dangerLevels);}
+    public DangerLevels update(DangerLevels dangerLevels){return dangerLevelsRepo.save(dangerLevels);}
 
     public void delete(DangerLevels dangerLevels){dangerLevelsRepo.delete(dangerLevels);}
 
